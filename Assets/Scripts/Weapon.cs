@@ -1,4 +1,5 @@
 using StarterAssets;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -7,6 +8,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject hitVFX;
+
 
     [SerializeField] int Damage;
 
@@ -38,6 +41,8 @@ public class Weapon : MonoBehaviour
         {
             
             Debug.Log(hit.collider.name);
+
+            Instantiate(hitVFX, hit.point, Quaternion.identity);
 
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
 

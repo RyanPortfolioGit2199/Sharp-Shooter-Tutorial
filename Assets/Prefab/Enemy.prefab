@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5169043601594139281}
   - component: {fileID: 91868818234109221}
   - component: {fileID: 3626484536493638249}
+  - component: {fileID: 5406196459147698987}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -54,8 +55,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
+  m_Height: 1.5
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &5169043601594139281
@@ -107,6 +108,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   currentHealth: 0
+--- !u!95 &5406196459147698987
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977234156950693057}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c76ee726b1def8b4fb196d6ab39c515b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7476834354631731875
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +217,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
       propertyPath: m_Name
       value: HoveringRobot02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

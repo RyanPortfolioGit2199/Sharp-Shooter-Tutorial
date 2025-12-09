@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int startingHealth;
     [SerializeField] int currentHealth;
+    
 
     private int PlayerGunDamage;
 
@@ -29,6 +30,8 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy says, AAAHHHHH!!!! PLAYER SHOT ME!!!, OOOOCCCCHHHHIIIIEEEE!!!!!!!!!!!!!!!!!!!");
 
         PlayerGunDamage = GunDamage;
+
+        
 
         TakeDamage();
     }
