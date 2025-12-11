@@ -1,17 +1,22 @@
+using Cinemachine;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveWeapon : MonoBehaviour
 {
     StarterAssetsInputs starterAssetsInputs;
     Weapon currentWeapon;
 
+   
     
     Animator animator;
 
     float timeSinceLastShot = 0f;
 
     [SerializeField] WeaponSO weaponSO;
+    [SerializeField] CinemachineVirtualCamera playerCamera;
+    [SerializeField] Image zoomVignitte;
 
     const string SHOOT_STRING = "Shoot";
 
@@ -29,10 +34,11 @@ public class ActiveWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
+        
 
         HandleShoot();
 
+        HandleZoom();
     }
 
     public void SwitchWeapon(WeaponSO weaponSO)
@@ -49,7 +55,7 @@ public class ActiveWeapon : MonoBehaviour
 
     void HandleShoot()
     {
-        
+        timeSinceLastShot += Time.deltaTime;
 
         if (!starterAssetsInputs.shoot) return;
 
@@ -69,6 +75,22 @@ public class ActiveWeapon : MonoBehaviour
 
     }
 
-    
+    void HandleZoom()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        if (starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zooming In");
+            playerCamera.m_Lens.FieldOfView = weaponSO.ZoomAmount;
+            zoomVignitte.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Can't Zoom In");
+            playerCamera.m_Lens.FieldOfView = weaponSO.defaultFOV;
+            zoomVignitte.gameObject.SetActive(false);
+        }
+    }
 
 }

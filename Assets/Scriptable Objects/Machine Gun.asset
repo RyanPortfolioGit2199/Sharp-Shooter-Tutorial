@@ -17,3 +17,4 @@ MonoBehaviour:
   FireRate: 0.2
   HitVFX: {fileID: 8694096977535191129, guid: 6729e13bc4b45ae428512591c627e977, type: 3}
   IsAutomatic: 1
+  CanZoom: 0
